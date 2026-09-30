@@ -3,10 +3,14 @@ import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 
 import org.firstinspires.ftc.teamcode.utils.colorSens;
 import org.firstinspires.ftc.teamcode.utils.shooterV1;
+
+import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 
 // this is to test keeping a servo at a certain angle until a color is sensed, and then hold a new angle until it isn't sensed
+
+@TeleOp(name="passive move test", group="Tests")
 
 public class passiveMoveTest extends OpMode {
     colorSens cs;
@@ -22,7 +26,7 @@ public class passiveMoveTest extends OpMode {
     @Override
     public void loop() {
 
-        boolean nectarFound = cs.isRed() || cs.isBlue();
+        boolean nectarFound = cs.isRed();  // || cs.isBlue();
 
         if (nectarFound) {
             s.posNectar();

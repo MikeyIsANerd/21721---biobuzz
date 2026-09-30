@@ -14,8 +14,8 @@ public class colorSens {
     private final float[] hsvValues = new float[3];
 
     // Tunable tolerances and thresholds (without distance)
-    public int colorMargin = 10;
-    public int minAlpha = 50;
+    public int colorMargin = 5;
+    public int minAlpha = 25;
 
     public colorSens(HardwareMap hardwareMap) {
         cs = hardwareMap.get(ColorSensor.class, "cs");
