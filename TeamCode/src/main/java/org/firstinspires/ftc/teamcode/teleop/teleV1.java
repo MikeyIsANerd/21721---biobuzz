@@ -7,7 +7,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 import com.qualcomm.robotcore.util.Range;
 import org.firstinspires.ftc.teamcode.utils.intake;
 import org.firstinspires.ftc.teamcode.utils.passthrough;
-import org.firstinspires.ftc.teamcode.utils.shooter;
+import org.firstinspires.ftc.teamcode.utils.shooterV1;
 
 
 
@@ -20,7 +20,7 @@ public class teleV1 extends LinearOpMode {
     private DcMotor leftDrive = null;
     private DcMotor rightDrive = null;
 
-    private shooter s;
+    private shooterV1 s;
     private passthrough pt;
     private intake i;
 
@@ -29,7 +29,7 @@ public class teleV1 extends LinearOpMode {
         telemetry.addData("Status", "Initialized");
         telemetry.update();
 
-        s = new shooter(hardwareMap);
+        s = new shooterV1(hardwareMap);
         pt = new passthrough(hardwareMap);
         i = new intake(hardwareMap);
         // Initialize the hardware variables. Note that the strings used here as parameters

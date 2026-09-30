@@ -7,7 +7,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 
 import org.firstinspires.ftc.teamcode.utils.intake;
 import org.firstinspires.ftc.teamcode.utils.passthrough;
-import org.firstinspires.ftc.teamcode.utils.shooter;
+import org.firstinspires.ftc.teamcode.utils.shooterV1;
 
 
 
@@ -19,7 +19,7 @@ public class launchTest extends LinearOpMode {
     private ElapsedTime runtime = new ElapsedTime();
     private DcMotor shooter = null;
 
-    private shooter s;
+    private shooterV1 s;
     private passthrough pt;
     private intake i;
 
@@ -28,7 +28,7 @@ public class launchTest extends LinearOpMode {
         telemetry.addData("Status", "Initialized");
         telemetry.update();
 
-        s = new shooter(hardwareMap);
+        s = new shooterV1(hardwareMap);
         pt = new passthrough(hardwareMap);
 
 

@@ -2,21 +2,18 @@ package org.firstinspires.ftc.teamcode.utils;
 
 import static com.qualcomm.robotcore.hardware.DcMotor.ZeroPowerBehavior.BRAKE;
 
-import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
-import com.qualcomm.robotcore.hardware.CRServo;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
 import com.qualcomm.robotcore.hardware.PIDFCoefficients;
-import org.firstinspires.ftc.teamcode.utils.passthrough;
 
 
-public class shooter {
+public class shooterV1 {
     // Launcher constants
-    public int TARGET_RPM = 1300;
+    public int TARGET_RPM = 1150;
 
-    public int RPM_TOLERANCE = 50;
+    public int RPM_TOLERANCE = 25;
     final int RPM_IN_RANGE_TIME = 250;
     final int FEED_TIME = 2000;
 
@@ -49,7 +46,7 @@ public class shooter {
     }
 
 
-    public shooter(HardwareMap hardwareMap) {
+    public shooterV1(HardwareMap hardwareMap) {
         // initialize hardware (drivetrain is initialized by Pedro Pathing)
         chipMotor = hardwareMap.get(DcMotorEx.class, "c");
         cPos = hardwareMap.get(Servo.class,"cPose");
