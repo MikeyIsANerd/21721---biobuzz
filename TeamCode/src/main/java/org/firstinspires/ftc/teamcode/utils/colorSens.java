@@ -13,6 +13,10 @@ public class colorSens {
 
     private final float[] hsvValues = new float[3];
 
+    // Tunable tolerances and thresholds (without distance)
+    public int colorMargin = 10;
+    public int minAlpha = 50;
+
     public colorSens(HardwareMap hardwareMap) {
         cs = hardwareMap.get(ColorSensor.class, "cs");
         try {
@@ -22,8 +26,6 @@ public class colorSens {
         }
     }
 
-
-
     /**
      * Get red component (0-255)
      */
@@ -31,6 +33,12 @@ public class colorSens {
         return cs.red();
     }
 
+    /**
+     * Get green component (0-255)
+     */
+    public int green() {
+        return cs.green();
+    }
 
     /**
      * Get blue component (0-255)
@@ -103,17 +111,23 @@ public class colorSens {
     }
 
     /**
-     * Checks if red is detected (red > blue with margin and sufficient alpha/brightness)
+     * Checks if red is detected using color margin and minimum alpha threshold
      */
     public boolean isRed() {
-        return (red() > blue() + 10) && (alpha() > 50);
+        return (red() > blue() + colorMargin) && (alpha() > minAlpha);
     }
 
     /**
-     * Checks if blue is detected (blue > red with margin and sufficient alpha/brightness)
+     * Checks if blue is detected using color margin and minimum alpha threshold
      */
     public boolean isBlue() {
-        return (blue() > red() + 10) && (alpha() > 50);
+        return (blue() > red() + colorMargin) && (alpha() > minAlpha);
     }
 
+    /**
+     * Checks if an object is present based purely on alpha/brightness threshold
+     */
+    public boolean isObjectPresent() {
+        return alpha() > minAlpha;
+    }
 }
